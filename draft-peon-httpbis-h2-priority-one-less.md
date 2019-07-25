@@ -5,8 +5,9 @@ docname: draft-peon-httpbis-h2-priority-one-less-latest
 date: {DATE}
 category: std
 ipr: trust200902
-area: Transport
-workgroup: QUIC
+area: ART
+workgroup: HTTPBIS
+updates: 7540
 
 stand_alone: yes
 pi: [toc, sortrefs, symrefs, docmapping]
@@ -28,6 +29,7 @@ normative:
 
 --- abstract
 
+This document deprecates HTTP/2 priority signaling hints.
 
 --- middle
 
