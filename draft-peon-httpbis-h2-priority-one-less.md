@@ -1,4 +1,4 @@
-../---
+---
 title: "Deprecation of HTTP/2 Priority Signaling Hints"
 abbrev: "--PRIORITY"
 docname: draft-peon-httpbis-h2-priority-one-less-latest
