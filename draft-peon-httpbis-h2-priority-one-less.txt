@@ -2,11 +2,11 @@
 
 
 
-HTTPBIS                                                       M. Thomson
-Internet-Draft                                                   Mozilla
-Updates: 7540 (if approved)                                      R. Peon
-Intended status: Standards Track                           July 25, 2019
-Expires: January 26, 2020
+HTTPBIS                                                          R. Peon
+Internet-Draft
+Updates: 7540 (if approved)                                   M. Thomson
+Intended status: Standards Track                                 Mozilla
+Expires: January 27, 2020                                  July 26, 2019
 
 
              Deprecation of HTTP/2 Priority Signaling Hints
@@ -14,7 +14,8 @@ Expires: January 26, 2020
 
 Abstract
 
-   This document deprecates HTTP/2 priority signaling hints.
+   This document deprecates HTTP/2 priority signaling hints.  It updates
+   RFC 7540 to do so.
 
 Status of This Memo
 
@@ -31,7 +32,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 26, 2020.
+   This Internet-Draft will expire on January 27, 2020.
 
 Copyright Notice
 
@@ -52,8 +53,7 @@ Copyright Notice
 
 
 
-
-Thomson & Peon          Expires January 26, 2020                [Page 1]
+Peon & Thomson          Expires January 27, 2020                [Page 1]
 
 Internet-Draft                 --PRIORITY                      July 2019
 
@@ -72,27 +72,28 @@ Table of Contents
 
    An important feature of any implementation of a protocol that
    provides multiplexing is the ability to prioritize the sending of
-   information.  This was an important realization in the design of
-   HTTP/2 [HTTP2].  Prioritization is a difficult problem, so it will
+   information.  Prioritization is a difficult problem, so it will
    always be suboptimal, particularly if one endpoint operates in
    ignorance of the needs of its peer.
 
-   HTTP/2 introduced a complex prioritization signaling scheme that used
-   a combination of dependencies and weights, formed into an unbalanced
-   tree.  That scheme also depends on in-order delivery, so it is
-   unsuitable for use in protocols like HTTP/3 [HTTP3], which attempts
-   to avoid global ordering.
+   The significance of this problem was recognized during the design of
+   HTTP/2 [HTTP2] and contributed to the design of a priority signaling
+   scheme.  HTTP/2 introduced a complex prioritization signaling scheme
+   that used a combination of dependencies and weights, formed into an
+   unbalanced tree.  That scheme also depends on in-order delivery, so
+   it is unsuitable for use in protocols like HTTP/3 [HTTP3], which
+   attempts to avoid global ordering.
 
-   Furthermore, though this scheme is rich in some ways, it has proven
-   to be inadequate in several others.  It is not well suited to major
-   use cases like live video delivery and it cannot be used to carry
-   hints from servers.
+   Though the scheme in HTTP/2 is rich in some ways, it has proven to be
+   inadequate in several others.  For instance, it is not well suited to
+   major use cases like live video delivery and it cannot be used to
+   carry hints from servers.
 
-   This prioritization scheme suffers from poor deployment and
-   interoperability.  Most server implementations do not include support
-   for this scheme, some favoring instead bespoke schemes based on
-   heuristics and other hints, like the content type of resources and
-   the order in which requests arrive.
+   Critically, the HTTP/2 prioritization signaling scheme suffers from
+   poor deployment and interoperability.  Most server implementations do
+   not include support for the scheme, some favoring instead bespoke
+   schemes based on heuristics and other hints, like the content type of
+   resources and the order in which requests arrive.
 
    Consequently, the priority hints defined in HTTP/2 cannot be used
    across different HTTP versions.  So either we define richer schemes
@@ -103,16 +104,19 @@ Table of Contents
    entire system without any evidence that the value it provides offsets
    that complexity.
 
-   This document formally deprecates the priority scheme defined in
-   HTTP/2, acknowledging the lack of wide interoperability and its lack
-   of suitability for new protocol versions and current use cases.
 
 
 
-Thomson & Peon          Expires January 26, 2020                [Page 2]
+
+
+Peon & Thomson          Expires January 27, 2020                [Page 2]
 
 Internet-Draft                 --PRIORITY                      July 2019
 
+
+   This document formally deprecates the priority scheme defined in
+   HTTP/2, acknowledging the lack of wide interoperability and its lack
+   of suitability for new protocol versions and current use cases.
 
    HTTP/2 servers were never obligated to use the information provided
    by clients in HTTP/2 PRIORITY (and HEADERS) frames.  This document
@@ -146,23 +150,19 @@ Internet-Draft                 --PRIORITY                      July 2019
 
 Authors' Addresses
 
+   Roberto Peon
+
+   Email: grmocg@gmail.com
+
+
    Martin Thomson
    Mozilla
 
    Email: mt@lowentropy.net
 
 
-   Roberto Peon
-
-   Email: grmocg@gmail.com
 
 
 
 
-
-
-
-
-
-
-Thomson & Peon          Expires January 26, 2020                [Page 3]
+Peon & Thomson          Expires January 27, 2020                [Page 3]
